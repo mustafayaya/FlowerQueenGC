@@ -106,13 +106,13 @@ public class PlayerController : MonoBehaviour
 
         if (attackCooldown < 0)
         {
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetKeyDown(KeyCode.Space))
             {
-                attackCooldown = 3;
+                attackCooldown = .25f;
                 GameObject go = (GameObject)GameObject.Instantiate(attackPrefab);
                 go.transform.position = transform.position;
-                go.GetComponent<Bullet>().Damage = damage;
-                go.GetComponent<Bullet>().speed = (transform.position - transform.right * 50) * -0.025f;
+                go.GetComponent<flowerbullet>().Damage = damage;
+                go.GetComponent<flowerbullet>().speed = (transform.right * 20) * -0.025f;
             }
         
 

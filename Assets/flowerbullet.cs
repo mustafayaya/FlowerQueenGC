@@ -15,14 +15,20 @@ public class flowerbullet : MonoBehaviour
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log(collision);
+        Debug.Log(collision.gameObject.tag);
         if (collision.gameObject.GetComponent<bird>() != null)
         {
             Debug.Log("Enemy");
 
-            PlayerController playerController = collision.gameObject.GetComponent<PlayerController>();
-            playerController.health -= Damage;
+            bird playerController = collision.gameObject.GetComponent<bird>();
+            playerController.health -= (int)Damage;
             Destroy(this.gameObject);
+        }
+        else if(collision.gameObject.tag != "Player" && collision.gameObject.tag != "Untagged")
+        {
+            Debug.Log(collision.gameObject.tag);
+            Destroy(this.gameObject);
+
         }
     }
 }

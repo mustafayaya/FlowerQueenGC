@@ -1,0 +1,7 @@
+db.lock
+/Library
+/Logs
+/obj
+/Packages
+/Temp
+/ProjectSettings

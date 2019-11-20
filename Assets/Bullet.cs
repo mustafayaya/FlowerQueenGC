@@ -5,7 +5,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
 
-    public float Damage;
+    public int Damage;
     public Vector3 speed;
 
     public void Update()
@@ -22,7 +22,14 @@ public class Bullet : MonoBehaviour
 
             PlayerController playerController = collision.gameObject.GetComponent<PlayerController>();
             playerController.health -= Damage;
+            playerController.StartCoroutine(playerController.GetHit());
             Destroy(this.gameObject);
+        }
+        else if (collision.gameObject.tag != "Player" && collision.gameObject.tag != "Untagged")
+        {
+            Debug.Log(collision.gameObject.tag);
+            Destroy(this.gameObject);
+
         }
     }
 }

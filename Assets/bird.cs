@@ -27,7 +27,7 @@ public class bird : MonoBehaviour
         }
     }
 
-    public float damage;
+    public int damage;
     void Death()
     {
         if (health <= 0)
